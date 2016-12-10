@@ -8,7 +8,7 @@
         {{ project.name }}
       </div>
     </div>
-    <link-button to="create-project">+</link-button>
+    <link-button to="/create-project">+</link-button>
     <div class="settings">
       <link-button to="/">edit hosts</link-button>
     </div>

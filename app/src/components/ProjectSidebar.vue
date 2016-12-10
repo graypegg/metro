@@ -7,15 +7,19 @@
     <div class="services">
       <div v-for="(service, serviceName) in projectObj.services"
            :class="'service ' + serviceState(service.online)"
-           @click="$router.push('/' + serviceName + '/' + uid)">
+           @click="$router.push('/' + serviceName + '/' + projectObj.uid)">
        {{ serviceName }}
       </div>
+    </div>
+    <div class="settings">
+      <link-button to="/">delete project</link-button>
     </div>
   </div>
 </template>
 
 <script>
   import store from 'src/vuex/store'
+  import LinkButton from './UI/LinkButton.vue'
   import { serviceState } from '../js/helpers.js'
 
   export default {
@@ -38,9 +42,7 @@
       }
     },
     methods: {
-      close () {
-        this.$parent.clear()
-      },
+      close () { this.$parent.clear() },
       serviceState
     },
     mounted () {
@@ -49,7 +51,8 @@
           this.projectObj = p
         }
       })
-    }
+    },
+    components: { LinkButton }
   }
 </script>
 
@@ -143,6 +146,15 @@
         margin: 15px 0;
         cursor: pointer;
       }
+    }
+
+    .settings {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: $cold-grey;
+      width: 100%;
+      padding: 20px;
     }
   }
 </style>
