@@ -1,11 +1,14 @@
 <template>
   <div class="sidebar">
     <div class="services">
-      <div class="service online" @click="$router.push('service/Apache')">
+      <div class="service online" @click="$router.push('/apache')">
         Apache
       </div>
-      <div class="service offline">
+      <div class="service offline" @click="$router.push('/mysql')">
         MySQL
+      </div>
+      <div class="service inactive" @click="$router.push('/nginx')">
+        Nginx
       </div>
     </div>
     <div class="settings">
@@ -28,17 +31,16 @@
   .sidebar {
     position: relative;
     background: $warm-grey;
-    flex: 1 1 275px;
+    flex: 0 0 250px;
     height: 100vh;
-    max-width: 350px;
-    min-width: 200px;
 
     .services {
       padding: 5px 20px;
 
       .service {
-        &.online  { @include liquidate($green-1, $green-2); }
-        &.offline { @include liquidate($red-1, $red-2);     }
+        &.online   { @include liquidate($green-1, $green-2); }
+        &.offline  { @include liquidate($red-1, $red-2);     }
+        &.inactive { background: $cold-grey;                 }
 
         width: 100%;
         color: #FFF;

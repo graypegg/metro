@@ -39,7 +39,7 @@
       top: calc(50% + 70px);
       transform: translateY(-50%);
       width: 100%;
-      font: $reg;
+      font-family: Helvetica, sans-serif;
       font-size: 3.5rem;
       text-align: center;
       color: $warm-grey;
