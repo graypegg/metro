@@ -12,6 +12,9 @@ $green-2: #00bfac;
 $red-1: #de5454;
 $red-2: #d67b54;
 
+$blue-1: #4d80f0;
+$blue-2: #469de0;
+
 $online: linear-gradient(to right, $green-1, $green-2);
 $offline: linear-gradient(to right, $red-1, $red-2);
 
@@ -72,10 +75,41 @@ $quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 /**
+ * Extentions
+ */
+
+ %clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/**
  * Generics
  */
 
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+}
+
+.btn {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid #FFF;
+  border-radius: 5px;
+  color: #FFF;
+  font: $reg;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: 90ms all $quad;
+
+  &:first-of-type { margin-left: 0; }
+  &:last-of-type { margin-right: 0; }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
 }

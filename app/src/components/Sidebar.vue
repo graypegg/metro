@@ -1,16 +1,14 @@
 <template>
   <div class="sidebar">
-    <div class="services">
-      <div class="service online" @click="$router.push('/apache')">
-        Apache
-      </div>
-      <div class="service offline" @click="$router.push('/mysql')">
-        MySQL
-      </div>
-      <div class="service inactive" @click="$router.push('/nginx')">
-        Nginx
+
+    <project-sidebar :uid="(shownProject ? shownProject.uid : '')"></project-sidebar>
+
+    <div class="projects">
+      <div class="project online" v-for="project in projects" @click="showProject(project)">
+        {{ project.name }}
       </div>
     </div>
+    <link-button to="create-project">+</link-button>
     <div class="settings">
       <link-button to="/">edit hosts</link-button>
     </div>
@@ -18,10 +16,28 @@
 </template>
 
 <script>
+  import store from 'src/vuex/store'
   import LinkButton from './UI/LinkButton.vue'
+  import ProjectSidebar from './ProjectSidebar.vue'
 
   export default {
-    components: { LinkButton }
+    store,
+    components: { LinkButton, ProjectSidebar },
+    data () {
+      return {
+        projects: store.state.projects.list,
+        shownProject: null
+      }
+    },
+    methods: {
+      showProject (project) {
+        this.shownProject = project
+      },
+      clear () {
+        this.shownProject = null
+        console.log('made it')
+      }
+    }
   }
 </script>
 
@@ -33,11 +49,12 @@
     background: $warm-grey;
     flex: 0 0 250px;
     height: 100vh;
+    overflow: hidden;
 
-    .services {
+    .projects {
       padding: 5px 20px;
 
-      .service {
+      .project {
         &.online   { @include liquidate($green-1, $green-2); }
         &.offline  { @include liquidate($red-1, $red-2);     }
         &.inactive { background: $cold-grey;                 }

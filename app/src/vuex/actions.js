@@ -1,9 +1,13 @@
-import * as types from './mutation-types'
+import shortid from 'shortid'
 
-export const decrementMain = ({ commit }) => {
-  commit(types.DECREMENT_MAIN_COUNTER)
-}
+export const createProject = ({ commit }, details) => {
+  let uid = shortid.generate()
 
-export const incrementMain = ({ commit }) => {
-  commit(types.INCREMENT_MAIN_COUNTER)
+  let opts = {
+    uid,
+    name: details.name,
+    directory: details.directory,
+    services: []
+  }
+  commit('ADD_PROJECT', opts)
 }

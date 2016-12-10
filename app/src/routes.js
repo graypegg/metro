@@ -5,6 +5,11 @@ export default [
     component: require('./views/Dash.vue')
   },
   {
+    path: '/create-project',
+    name: 'create-project',
+    component: require('./views/CreateProject.vue')
+  },
+  {
     path: '/apache',
     name: 'apache',
     component: require('./views/services/Apache.vue')

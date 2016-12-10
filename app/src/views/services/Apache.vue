@@ -3,23 +3,11 @@
     <div class="top">
       <h1>Apache</h1>
       <div class="buttons">
-        <div @click="createCon">Create</div>
+        <div>Create</div>
       </div>
     </div>
 	</div>
 </template>
-
-<script>
-  import containers from '../../system/containers.js'
-
-  export default {
-    methods: {
-      createCon () {
-        containers.create('Apache')
-      }
-    }
-  }
-</script>
 
 <style lang="scss" scoped>
   @import "../../sass/default.scss";
