@@ -1,4 +1,4 @@
-# ailurus
+# Métro
 
 > A MAMP-style desktop server manager
 
