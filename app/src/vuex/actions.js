@@ -7,7 +7,20 @@ export const createProject = ({ commit }, details) => {
     uid,
     name: details.name,
     directory: details.directory,
-    services: []
+    services: {
+      apache: {
+        online: null,
+        options: {}
+      },
+      mysql: {
+        online: null,
+        options: {}
+      },
+      nginx: {
+        online: null,
+        options: {}
+      }
+    }
   }
   commit('ADD_PROJECT', opts)
 }

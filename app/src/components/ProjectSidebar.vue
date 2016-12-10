@@ -5,7 +5,9 @@
       <div class="name">{{ projectObj.name }}</div>
     </div>
     <div class="services">
-      <div class="service"></div>
+      <div v-for="(service, serviceName) in projectObj.services" :class="'service ' + serviceState(service.online)">
+        {{ serviceName }}
+      </div>
     </div>
   </div>
 </template>
@@ -19,7 +21,8 @@
     data () {
       return {
         projectObj: {
-          name: ''
+          name: '',
+          services: []
         }
       }
     },
@@ -34,6 +37,17 @@
     methods: {
       close () {
         this.$parent.clear()
+      },
+      serviceState (online) {
+        if (online === null) {
+          return 'inactive'
+        } else if (online === false) {
+          return 'offline'
+        } else if (online === true) {
+          return 'online'
+        } else {
+          console.log('shit fucked up', online)
+        }
       }
     },
     mounted () {
@@ -117,6 +131,24 @@
         font: $reg;
         font-size: 1.4rem;
         padding-left: 10px;
+      }
+    }
+
+    .services {
+      padding: 5px 20px;
+
+      .service {
+        &.online   { @include liquidate($green-1, $green-2); }
+        &.offline  { @include liquidate($red-1, $red-2);     }
+        &.inactive { background: $cold-grey;                 }
+
+        width: 100%;
+        color: #FFF;
+        font: $reg;
+        font-size: 1.2rem;
+        padding: 15px 20px;
+        margin: 15px 0;
+        cursor: pointer;
       }
     }
   }
