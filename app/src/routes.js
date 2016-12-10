@@ -10,17 +10,17 @@ export default [
     component: require('./views/CreateProject.vue')
   },
   {
-    path: '/apache',
+    path: '/apache/:uid',
     name: 'apache',
     component: require('./views/services/Apache.vue')
   },
   {
-    path: '/mysql',
+    path: '/mysql/:uid',
     name: 'mysql',
     component: require('./views/services/MySQL.vue')
   },
   {
-    path: '/nginx',
+    path: '/nginx/:uid',
     name: 'nginx',
     component: require('./views/services/Nginx.vue')
   }

@@ -1,5 +1,7 @@
 .page {
-  @include liquidate($green-1, $green-2);
+  &.online   { @include liquidate($green-1, $green-2); }
+  &.offline  { @include liquidate($red-1, $red-2);     }
+  &.inactive { background: $cold-grey;                 }
   padding: 20px 30px;
 
   .top {

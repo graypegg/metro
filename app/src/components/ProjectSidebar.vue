@@ -5,8 +5,10 @@
       <div class="name">{{ projectObj.name }}</div>
     </div>
     <div class="services">
-      <div v-for="(service, serviceName) in projectObj.services" :class="'service ' + serviceState(service.online)">
-        {{ serviceName }}
+      <div v-for="(service, serviceName) in projectObj.services"
+           :class="'service ' + serviceState(service.online)"
+           @click="$router.push('/' + serviceName + '/' + uid)">
+       {{ serviceName }}
       </div>
     </div>
   </div>
@@ -14,6 +16,7 @@
 
 <script>
   import store from 'src/vuex/store'
+  import { serviceState } from '../js/helpers.js'
 
   export default {
     store,
@@ -38,17 +41,7 @@
       close () {
         this.$parent.clear()
       },
-      serviceState (online) {
-        if (online === null) {
-          return 'inactive'
-        } else if (online === false) {
-          return 'offline'
-        } else if (online === true) {
-          return 'online'
-        } else {
-          console.log('shit fucked up', online)
-        }
-      }
+      serviceState
     },
     mounted () {
       this.$watch('project', (p) => {

@@ -35,7 +35,6 @@
       },
       clear () {
         this.shownProject = null
-        console.log('made it')
       }
     }
   }
