@@ -5,7 +5,7 @@ const path = require('path')
 let config = {
   // Name of electron app
   // Will be used in production builds
-  name: 'ailurus',
+  name: 'Métro',
 
   // Use ESLint (extends `standard`)
   // Further changes can be made in `.eslintrc.js`
@@ -20,7 +20,7 @@ let config = {
     arch: 'x64',
     asar: true,
     dir: path.join(__dirname, 'app'),
-    icon: path.join(__dirname, 'app/icons/icon'),
+    icon: path.join(__dirname, 'app/icons/icon.png'),
     ignore: /\b(node_modules|src|index\.ejs|icons)\b/,
     out: path.join(__dirname, 'builds'),
     overwrite: true,
