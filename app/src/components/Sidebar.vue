@@ -43,6 +43,7 @@
         width: 100%;
         color: #FFF;
         font: $reg;
+        font-size: 1.2rem;
         padding: 15px 20px;
         margin: 15px 0;
         cursor: pointer;

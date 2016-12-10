@@ -25,11 +25,23 @@
 
     .top {
       h1 {
+        display: inline-block;
+        position: relative;
         font: $reg;
+        font-size: 2.75rem;
         color: #FFF;
-        font-size: 2.5rem;
         font-weight: normal;
         margin: 0;
+
+        &::after {
+          content: "";
+          display: block;
+          position: relative;
+          top: 3px;
+          background: #FFF;
+          height: 1px;
+          width: 100%;
+        }
       }
     }
   }
