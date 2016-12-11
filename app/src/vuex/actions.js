@@ -10,15 +10,18 @@ export const createProject = ({ commit }, details) => {
     services: {
       apache: {
         online: null,
-        options: {}
+        options: {},
+        name: 'apache'
       },
       mysql: {
         online: null,
-        options: {}
+        options: {},
+        name: 'mysql'
       },
       nginx: {
         online: null,
-        options: {}
+        options: {},
+        name: 'nginx'
       }
     }
   }

@@ -5,10 +5,10 @@
       <div class="name">{{ projectObj.name }}</div>
     </div>
     <div class="services">
-      <div v-for="(service, serviceName) in projectObj.services"
+      <div v-for="service in projectObj.services"
            :class="'service ' + serviceState(service.online)"
-           @click="$router.push('/' + serviceName + '/' + projectObj.uid)">
-       {{ serviceName }}
+           @click="$router.push('/' + service.name + '/' + projectObj.uid)">
+       {{ service.name }}
       </div>
     </div>
     <div class="settings">
