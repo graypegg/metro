@@ -6,6 +6,7 @@
     <div class="projects">
       <div class="project online" v-for="project in projects" @click="showProject(project)">
         {{ project.name }}
+        <span class="tld">.dev</span>
       </div>
     </div>
     <link-button to="/create-project">+</link-button>
@@ -58,6 +59,9 @@
         &.offline  { @include liquidate($red-1, $red-2);     }
         &.inactive { background: $cold-grey;                 }
 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
         color: #FFF;
         font: $reg;
@@ -65,6 +69,14 @@
         padding: 15px 20px;
         margin: 15px 0;
         cursor: pointer;
+
+        span.tld {
+          font-size: 0.8rem;
+          background: #333;
+          color: #FFF;
+          padding: 2px 6px;
+          border-radius: 5px;
+        }
       }
     }
 

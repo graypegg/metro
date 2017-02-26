@@ -12,5 +12,4 @@ export default function () {
     },
     projects: []
   })
-  console.log(settings)
 }
